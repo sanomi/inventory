@@ -16,8 +16,13 @@ inventory.controller('inventoryCtrl', function($scope) {
 		console.log($scope.item.quantity);
 		for (let n of $scope.rooms) {
 			if ($scope.item.room === n.name) {
-				console.log(n)
+				if(n.cost) {
+				n.cost = n.cost + ($scope.item.cost * $scope.item.quantity)
+				} else {
+					n.cost = ($scope.item.cost * $scope.item.quantity)
+				}
 			}
+			console.log(n)
 		}
 		$scope.item = null;
 	}
