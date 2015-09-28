@@ -4,7 +4,6 @@ let inventory = angular.module('inventory', []);
 inventory.controller('inventoryCtrl', function($scope) {
 	$scope.rooms = [];
 	$scope.inventoryList= [];
-
 	$scope.addRoom = room => {
 		$scope.rooms.push(room);
 		$scope.room = null;
@@ -13,8 +12,13 @@ inventory.controller('inventoryCtrl', function($scope) {
 		$scope.item.total = $scope.item.cost * $scope.item.quantity;
 		$scope.inventoryList.push(item);
 		console.log($scope.rooms)
-		let roomIdx = $scope.rooms.indexOf({name:item.room});
-		console.log(roomIdx);
+		console.log($scope.item.cost);
+		console.log($scope.item.quantity);
+		for (let n of $scope.rooms) {
+			if ($scope.item.room === n.name) {
+				console.log(n)
+			}
+		}
 		$scope.item = null;
 	}
 })

@@ -7,7 +7,7 @@
 <body ng-app="inventory" ng-controller='inventoryCtrl'>
 	<form ng-model='room'>
 	<input type="text" ng-model='room.name' placeholder='room'>
-	<input type="hidden" ng-model='room.cost' value='0'>
+	<input type="hidden" ng-model='room.cost' ng-value='0'>
 	<button ng-click='addRoom(room)'>Add</button>
 	</form>
 
@@ -31,6 +31,7 @@
 		<tbody>
 			<th>
 				<td>Item</td>
+				<td>Room</td>
 				<td>Cost</td>
 				<td>Quanity</td>
 				<td>Total</td>
@@ -38,6 +39,7 @@
 			<tr ng-repeat='inventory in inventoryList track by $index'>
 				<td></td>
 				<td>{{inventory.name}}</td>
+				<td>{{inventory.room}}</td>
 				<td>{{inventory.cost}}</td>
 				<td>{{inventory.quantity}}</td>
 				<td>{{inventory.total}}</td>
